@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<VoucherList xmlns="http://silentium.ua/entity/vouchers" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://silentium.ua/entity/vouchers VoucherList.xsd">
+    <Voucher priority="High-priority" id="1">
+        <voucher_count>1</voucher_count>
+        <amount>150</amount>
+        <Person id="1">
+            <name>София</name>
+            <surname>Ерошенко</surname>
+            <email>adm@gmail.com</email>
+            <tel_num>380970996773</tel_num>
+            <address>г.Харьков, Победы просп., 1</address>
+            <birth_date>2001-01-01</birth_date>
+            <document>паспорт № 82091568</document>
+            <role>Admin</role>
+        </Person>
+        <Order id="1">
+            <order_count>1</order_count>
+            <Tour_date id="1">
+                <date_arrival>2021-12-31T12:00:00</date_arrival>
+                <price>150.00</price>
+                <Tour id="1">
+                    <tour_name>Вокруг Швейцарии </tour_name>
+                    <tour_description>Незабываемые каникулы в Альпах</tour_description>
+                    <quantity_night>4</quantity_night>
+                    <tour_operator>TEZ Tour</tour_operator>
+                    <type_food>All inclusive</type_food>
+                    <type_transport>Bus</type_transport>
+                    <type_tour>Excursion</type_tour>
+                </Tour>
+            </Tour_date>
+            <Person id="2">
+                <name>Анастасия</name>
+                <surname>Романова</surname>
+                <patronymic>Юрьевна</patronymic>
+                <email>client_nastya@gmail.com</email>
+                <tel_num>380970663582</tel_num>
+                <address>г.Харьков, Гагарина просп., 1 </address>
+                <birth_date>2001-06-01</birth_date>
+                <document>паспорт № 82091566</document>
+                <role>Client</role>
+            </Person>
+            <order_date>2021-10-25T09:00:00</order_date>
+            <date_updated_order>2021-10-26T15:00:00</date_updated_order>
+            <status_order>Confirmed</status_order>
+            <order_contact>
+                <order_email>client_nastya@gmail.com</order_email>
+            </order_contact>
+        </Order>
+        <voucher_date>2021-10-27T15:00:00</voucher_date>
+        <date_updated_voucher>2021-10-27T17:00:00</date_updated_voucher>
+        <status_voucher>In the process</status_voucher>
+        <voucher_contact>
+            <voucher_email>sofia.eroshenko@gmail.com</voucher_email>
+            <voucher_tel_num>380970996773</voucher_tel_num>
+        </voucher_contact>
+    </Voucher>
+    <Voucher id="2">
+        <voucher_count>2</voucher_count>
+        <amount>600</amount>
+        <Person id="3">
+            <name>Марк</name>
+            <surname>Демьяненко</surname>
+            <email>mark_m@gmail.com</email>
+            <tel_num>380975596773</tel_num>
+            <address>г.Харьков, Победы просп., 48</address>
+            <birth_date>2001-08-01</birth_date>
+            <document>паспорт № 82066568</document>
+            <role>Manager</role>
+        </Person>
+        <Order id="3">
+            <order_count>2</order_count>
+            <Tour_date id="2">
+                <date_arrival>2022-01-31T12:00:00</date_arrival>
+                <price>300.00</price>
+                <Tour id="2">
+                    <tour_name>Польша и Чехия </tour_name>
+                    <tour_description>Быстрый отдых</tour_description>
+                    <quantity_night>6</quantity_night>
+                    <tour_operator>Accord Tour</tour_operator>
+                    <type_food>Breakfast</type_food>
+                    <type_transport>Bus</type_transport>
+                    <type_tour>Gastro tour</type_tour>
+                </Tour>
+            </Tour_date>
+            <Person id="5">
+                <name>Алексей</name>
+                <surname>Петров</surname>
+                <patronymic>Сергеевич</patronymic>
+                <email>client_ale@gmail.com</email>
+                <tel_num>380975346582</tel_num>
+                <address>г.Харьков, Киевский просп., 5 </address>
+                <birth_date>2002-08-01</birth_date>
+                <document>паспорт № 82771566</document>
+                <role>Client</role>
+            </Person>
+            <order_date>2021-11-02T16:30:00</order_date>
+            <date_updated_order>2021-11-03T12:30:00</date_updated_order>
+            <status_order>Confirmed</status_order>
+            <order_contact>
+                <order_email>client_ale@gmail.com</order_email>
+            </order_contact>
+        </Order>
+        <voucher_date>2021-11-03T12:30:00</voucher_date>
+        <date_updated_voucher>2021-11-03T15:30:00</date_updated_voucher>
+        <status_voucher>Booked</status_voucher>
+        <voucher_contact>
+            <voucher_email>mark_m@gmail.com</voucher_email>
+            <voucher_tel_num>380975596773</voucher_tel_num>
+        </voucher_contact>
+    </Voucher>
+</VoucherList>

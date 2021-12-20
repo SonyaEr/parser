@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://silentium.ua/entity/vouchers"
+	xmlns:smv="http://silentium.ua/entity/vouchers"
+	xmlns:sm="http://silentium.ua/entity" elementFormDefault="qualified">
+	<xsd:import namespace="http://silentium.ua/entity"
+		schemaLocation="entity.xsd" />
+
+	<xsd:simpleType name="Type_food">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="All inclusive" />
+			<xsd:enumeration value="Breakfast" />
+			<xsd:enumeration value="Breakfast and dinner" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Type_transport">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Bus" />
+			<xsd:enumeration value="Airpale" />
+			<xsd:enumeration value="Cruise ship" />
+			<xsd:enumeration value="Foot" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Type_tour">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Excursion" />
+			<xsd:enumeration value="Gastro tour" />
+			<xsd:enumeration value="Rest day" />
+			<xsd:enumeration value="Cruise" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="Tour">
+		<xsd:complexContent>
+			<xsd:extension base="sm:Entity">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="tour_name" type="xsd:string" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="tour_description" type="xsd:string" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="quantity_night" type="xsd:nonNegativeInteger" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="tour_operator" type="xsd:string" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="type_food" type="smv:Type_food" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="type_transport" type="smv:Type_transport" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="type_tour" type="smv:Type_tour" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>
+		

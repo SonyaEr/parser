@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://silentium.ua/entity"
+	xmlns:ent="http://silentium.ua/entity" elementFormDefault="qualified">
+	<xsd:complexType name="Entity">
+		<xsd:attribute name="id" type="ent:Id" use="required" />
+	</xsd:complexType>
+	<xsd:simpleType name="Id">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0" />
+			<xsd:maxExclusive value="999999" />
+			<xsd:pattern value="[0-9]*" />
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>
+
+

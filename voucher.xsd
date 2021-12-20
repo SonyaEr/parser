@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://silentium.ua/entity/vouchers"
+	xmlns:smv="http://silentium.ua/entity/vouchers"
+	xmlns:sm="http://silentium.ua/entity" elementFormDefault="qualified">
+
+	<xsd:import namespace="http://silentium.ua/entity"
+		schemaLocation="entity.xsd" />
+	<xsd:include schemaLocation="person.xsd" />
+	<xsd:include schemaLocation="tour_date.xsd" />
+	<xsd:include schemaLocation="order.xsd" />
+
+	<xsd:simpleType name="Voucher_count">
+		<xsd:restriction base="xsd:int">
+			<xsd:minExclusive value="0" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Amount">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="8" />
+			<xsd:fractionDigits value="2" />
+			<xsd:minInclusive value="0" />
+			<xsd:maxInclusive value="99999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+
+	<xsd:simpleType name="Status_voucher">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Booked" />
+			<xsd:enumeration value="Waiting for" />
+			<xsd:enumeration value="Confirmed" />
+			<xsd:enumeration value="In the process" />
+			<xsd:enumeration value="Completed" />
+			<xsd:enumeration value="Annulled" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Priority">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="High-priority" />
+			<xsd:enumeration value="low-priority" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="Contact_manager">
+		<xsd:all>
+			<xsd:element name="voucher_email" type="smv:Email" />
+			<xsd:element name="voucher_tel_num" type="smv:Tel_num" />
+		</xsd:all>
+	</xsd:complexType>
+
+	<xsd:complexType name="Voucher">
+		<xsd:complexContent>
+			<xsd:extension base="sm:Entity">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="voucher_count" type="smv:Voucher_count" />
+					<xsd:element maxOccurs="1" minOccurs="1" name="amount"
+						type="smv:Amount" />
+					<xsd:element maxOccurs="1" minOccurs="1" name="Person"
+						type="smv:Person" />
+					<xsd:element maxOccurs="1" minOccurs="1" name="Order"
+						type="smv:Order" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="voucher_date" type="xsd:dateTime" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="date_updated_voucher" type="xsd:dateTime" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="status_voucher" type="smv:Status_voucher" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="voucher_contact" type="smv:Contact_manager" />
+				</xsd:sequence>
+				<xsd:attribute name="priority" type="smv:Priority"
+					use="optional" />
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

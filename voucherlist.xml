@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="./vouchers.xsl"?>
+<smv:VoucherList xmlns:sm="http://silentium.ua/entity"
+	xmlns:smv="http://silentium.ua/entity/vouchers"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://silentium.ua/entity/vouchers voucherlist.xsd ">
+	<smv:Voucher id="1" priority ="High-priority">
+		<smv:voucher_count>1</smv:voucher_count>
+		<smv:amount>150</smv:amount>
+		<smv:Person id="1">
+			<smv:name>София</smv:name>
+			<smv:surname>Ерошенко</smv:surname>
+			<smv:email>adm@gmail.com</smv:email>
+			<smv:tel_num>380970996773</smv:tel_num>
+			<smv:address>г.Харьков, Победы просп., 1</smv:address>
+			<smv:birth_date>2001-01-01</smv:birth_date>
+			<smv:document>паспорт № 82091568</smv:document>
+			<smv:role>Admin</smv:role>
+		</smv:Person>
+		<smv:Order id="1">
+			<smv:order_count>1</smv:order_count>
+			<smv:Tour_date id="1">
+				<smv:date_arrival>2021-12-31T12:00:00</smv:date_arrival>
+				<smv:price>150.00</smv:price>
+				<smv:Tour id="1">
+					<smv:tour_name>Вокруг Швейцарии </smv:tour_name>
+					<smv:tour_description>Незабываемые каникулы в Альпах</smv:tour_description>
+					<smv:quantity_night>4</smv:quantity_night>
+					<smv:tour_operator>TEZ Tour</smv:tour_operator>
+					<smv:type_food>All inclusive</smv:type_food>
+					<smv:type_transport>Bus</smv:type_transport>
+					<smv:type_tour>Excursion</smv:type_tour>
+				</smv:Tour>
+			</smv:Tour_date>
+			<smv:Person id="2">
+				<smv:name>Анастасия</smv:name>
+				<smv:surname>Романова</smv:surname>
+				<smv:patronymic>Юрьевна</smv:patronymic>
+				<smv:email>client_nastya@gmail.com</smv:email>
+				<smv:tel_num>380970663582</smv:tel_num>
+				<smv:address>г.Харьков, Гагарина просп., 1 </smv:address>
+				<smv:birth_date>2001-06-01</smv:birth_date>
+				<smv:document>паспорт № 82091566</smv:document>
+				<smv:role>Client</smv:role>
+			</smv:Person>
+			<smv:order_date>2021-10-25T09:00:00</smv:order_date>
+			<smv:date_updated_order>2021-10-26T15:00:00</smv:date_updated_order>
+			<smv:status_order>Confirmed</smv:status_order>
+			<smv:order_contact>
+				<smv:order_email>client_nastya@gmail.com</smv:order_email>
+			</smv:order_contact>
+		</smv:Order>
+		<smv:voucher_date>2021-10-27T15:00:00</smv:voucher_date>
+		<smv:date_updated_voucher>2021-10-27T17:00:00</smv:date_updated_voucher>
+		<smv:status_voucher>In the process</smv:status_voucher>
+		<smv:voucher_contact>
+			<smv:voucher_email>sofia.eroshenko@gmail.com</smv:voucher_email>
+			<smv:voucher_tel_num>380970996773</smv:voucher_tel_num>
+		</smv:voucher_contact>
+	</smv:Voucher>
+
+
+	<smv:Voucher id="2">
+		<smv:voucher_count>2</smv:voucher_count>
+		<smv:amount>600</smv:amount>
+		<smv:Person id="3">
+			<smv:name>Марк</smv:name>
+			<smv:surname>Демьяненко</smv:surname>
+			<smv:email>mark_m@gmail.com</smv:email>
+			<smv:tel_num>380975596773</smv:tel_num>
+			<smv:address>г.Харьков, Победы просп., 48</smv:address>
+			<smv:birth_date>2001-08-01</smv:birth_date>
+			<smv:document>паспорт № 82066568</smv:document>
+			<smv:role>Manager</smv:role>
+		</smv:Person>
+		<smv:Order id="3">
+			<smv:order_count>2</smv:order_count>
+			<smv:Tour_date id="2">
+				<smv:date_arrival>2022-01-31T12:00:00</smv:date_arrival>
+				<smv:price>300.00</smv:price>
+				<smv:Tour id="2">
+					<smv:tour_name>Польша и Чехия </smv:tour_name>
+					<smv:tour_description>Быстрый отдых</smv:tour_description>
+					<smv:quantity_night>6</smv:quantity_night>
+					<smv:tour_operator>Accord Tour</smv:tour_operator>
+					<smv:type_food>Breakfast</smv:type_food>
+					<smv:type_transport>Bus</smv:type_transport>
+					<smv:type_tour>Gastro tour</smv:type_tour>
+				</smv:Tour>
+			</smv:Tour_date>
+			<smv:Person id="5">
+				<smv:name>Алексей</smv:name>
+				<smv:surname>Петров</smv:surname>
+				<smv:patronymic>Сергеевич</smv:patronymic>
+				<smv:email>client_ale@gmail.com</smv:email>
+				<smv:tel_num>380975346582</smv:tel_num>
+				<smv:address>г.Харьков, Киевский просп., 5 </smv:address>
+				<smv:birth_date>2002-08-01</smv:birth_date>
+				<smv:document>паспорт № 82771566</smv:document>
+				<smv:role>Client</smv:role>
+			</smv:Person>
+			<smv:order_date>2021-11-02T16:30:00</smv:order_date>
+			<smv:date_updated_order>2021-11-03T12:30:00</smv:date_updated_order>
+			<smv:status_order>Confirmed</smv:status_order>
+			<smv:order_contact>
+				<smv:order_email>client_ale@gmail.com</smv:order_email>
+			</smv:order_contact>
+		</smv:Order>
+		<smv:voucher_date>2021-11-03T12:30:00</smv:voucher_date>
+		<smv:date_updated_voucher>2021-11-03T15:30:00</smv:date_updated_voucher>
+		<smv:status_voucher>Booked</smv:status_voucher>
+		<smv:voucher_contact>
+			<smv:voucher_email>mark_m@gmail.com</smv:voucher_email>
+			<smv:voucher_tel_num>380975596773</smv:voucher_tel_num>
+		</smv:voucher_contact>
+	</smv:Voucher>
+</smv:VoucherList>

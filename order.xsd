@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://silentium.ua/entity/vouchers"
+	xmlns:smv="http://silentium.ua/entity/vouchers"
+	xmlns:sm="http://silentium.ua/entity" elementFormDefault="qualified">
+
+	<xsd:import namespace="http://silentium.ua/entity"
+		schemaLocation="entity.xsd" />
+	<xsd:include schemaLocation="person.xsd" />
+	<xsd:include schemaLocation="tour_date.xsd" />
+
+
+	<xsd:simpleType name="Order_count">
+		<xsd:restriction base="xsd:int">
+			<xsd:minExclusive value="0" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Status_order">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Waiting for" />
+			<xsd:enumeration value="Confirmed" />
+			<xsd:enumeration value="Annulled" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="Contact">
+		<xsd:choice>
+			<xsd:element name="order_email" type="smv:Email" />
+			<xsd:element name="order_tel_num" type="smv:Tel_num" />
+		</xsd:choice>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="Order">
+		<xsd:complexContent>
+			<xsd:extension base="sm:Entity">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="order_count" type="smv:Order_count" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="Tour_date" type="smv:Tour_date" />
+					<xsd:element maxOccurs="1" minOccurs="1" name="Person"
+						type="smv:Person" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="order_date" type="xsd:dateTime" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="date_updated_order" type="xsd:dateTime" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="status_order" type="smv:Status_order" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="order_contact" type="smv:Contact" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>
+	
+	

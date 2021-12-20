@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://silentium.ua/entity/vouchers"
+	xmlns:smv="http://silentium.ua/entity/vouchers"
+	xmlns:sm="http://silentium.ua/entity" elementFormDefault="qualified">
+	<xsd:import namespace="http://silentium.ua/entity"
+		schemaLocation="entity.xsd" />
+
+	<xsd:simpleType name="Email">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="5" />
+			<xsd:maxLength value="254" />
+			<xsd:pattern
+				value="[_\-a-zA-Z0-9\.\+]+@[a-zA-Z0-9]+\.[^@]+" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Tel_num">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="12" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Role">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Admin" />
+			<xsd:enumeration value="Manager" />
+			<xsd:enumeration value="Client" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="Person">
+		<xsd:complexContent>
+			<xsd:extension base="sm:Entity">
+				<xsd:sequence>
+					<xsd:element minOccurs="1" maxOccurs="1" name="name"
+						type="xsd:string" />
+					<xsd:element minOccurs="1" maxOccurs="1" name="surname"
+						type="xsd:string" />
+					<xsd:element minOccurs="0" maxOccurs="1"
+						name="patronymic" type="xsd:string" />
+					<xsd:element minOccurs="0" maxOccurs="1" name="email"
+						type="smv:Email" />
+					<xsd:element minOccurs="1" maxOccurs="1" name="tel_num"
+						type="smv:Tel_num" />
+					<xsd:element minOccurs="1" maxOccurs="1" name="address"
+						type="xsd:string" />
+					<xsd:element minOccurs="1" maxOccurs="1"
+						name="birth_date" type="xsd:date" />
+					<xsd:element minOccurs="1" maxOccurs="1"
+						name="document" type="xsd:string" />
+					<xsd:element minOccurs="1" maxOccurs="1" name="role"
+						type="smv:Role" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>
+
+
+	
+		

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://silentium.ua/entity/vouchers"
+	xmlns:smv="http://silentium.ua/entity/vouchers"
+	elementFormDefault="qualified">
+
+	<xsd:element name="VoucherList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="1" maxOccurs="unbounded"
+					name="Voucher" type="smv:Voucher" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:simpleType name="Voucher_count">
+		<xsd:restriction base="xsd:int">
+			<xsd:minExclusive value="0" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Amount">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="8" />
+			<xsd:fractionDigits value="2" />
+			<xsd:minInclusive value="0" />
+			<xsd:maxInclusive value="99999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+
+	<xsd:simpleType name="Status_voucher">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Booked" />
+			<xsd:enumeration value="Waiting for" />
+			<xsd:enumeration value="Confirmed" />
+			<xsd:enumeration value="In the process" />
+			<xsd:enumeration value="Completed" />
+			<xsd:enumeration value="Annulled" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Priority">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="High-priority" />
+			<xsd:enumeration value="low-priority" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="Contact_manager">
+		<xsd:all>
+			<xsd:element name="voucher_email" type="smv:Email" />
+			<xsd:element name="voucher_tel_num" type="smv:Tel_num" />
+		</xsd:all>
+	</xsd:complexType>
+	<xsd:complexType name="Voucher">
+		<xsd:complexContent>
+			<xsd:extension base="smv:Entity">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="voucher_count" type="smv:Voucher_count" />
+					<xsd:element maxOccurs="1" minOccurs="1" name="amount"
+						type="smv:Amount" />
+					<xsd:element maxOccurs="1" minOccurs="1" name="Person"
+						type="smv:Person" />
+					<xsd:element maxOccurs="1" minOccurs="1" name="Order"
+						type="smv:Order" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="voucher_date" type="xsd:dateTime" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="date_updated_voucher" type="xsd:dateTime" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="status_voucher" type="smv:Status_voucher" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="voucher_contact" type="smv:Contact_manager" />
+				</xsd:sequence>
+				<xsd:attribute name="priority" type="smv:Priority"
+					use="optional" />
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:simpleType name="Order_count">
+		<xsd:restriction base="xsd:int">
+			<xsd:minExclusive value="0" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Status_order">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Waiting for" />
+			<xsd:enumeration value="Confirmed" />
+			<xsd:enumeration value="Annulled" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="Contact">
+		<xsd:choice>
+			<xsd:element name="order_email" type="smv:Email" />
+			<xsd:element name="order_tel_num" type="smv:Tel_num" />
+		</xsd:choice>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="Order">
+		<xsd:complexContent>
+			<xsd:extension base="smv:Entity">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="order_count" type="smv:Order_count" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="Tour_date" type="smv:Tour_date" />
+					<xsd:element maxOccurs="1" minOccurs="1" name="Person"
+						type="smv:Person" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="order_date" type="xsd:dateTime" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="date_updated_order" type="xsd:dateTime" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="status_order" type="smv:Status_order" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="order_contact" type="smv:Contact" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="Price">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="7" />
+			<xsd:fractionDigits value="2" />
+			<xsd:minInclusive value="0" />
+			<xsd:maxInclusive value="99999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="Tour_date">
+		<xsd:complexContent>
+			<xsd:extension base="smv:Entity">
+				<xsd:sequence>
+					<xsd:element minOccurs="1" maxOccurs="1"
+						name="date_arrival" type="xsd:dateTime" />
+					<xsd:element minOccurs="1" maxOccurs="1" name="price"
+						type="smv:Price" />
+					<xsd:element minOccurs="0" maxOccurs="1"
+						name="tour_date_name" type="xsd:string" />
+					<xsd:element name="Tour" type="smv:Tour" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="Type_food">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="All inclusive" />
+			<xsd:enumeration value="Breakfast" />
+			<xsd:enumeration value="Breakfast and dinner" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Type_transport">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Bus" />
+			<xsd:enumeration value="Airpale" />
+			<xsd:enumeration value="Cruise ship" />
+			<xsd:enumeration value="Foot" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Type_tour">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Excursion" />
+			<xsd:enumeration value="Gastro tour" />
+			<xsd:enumeration value="Rest day" />
+			<xsd:enumeration value="Cruise" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="Tour">
+		<xsd:complexContent>
+			<xsd:extension base="smv:Entity">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="tour_name" type="xsd:string" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="tour_description" type="xsd:string" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="quantity_night" type="xsd:nonNegativeInteger" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="tour_operator" type="xsd:string" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="type_food" type="smv:Type_food" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="type_transport" type="smv:Type_transport" />
+					<xsd:element maxOccurs="1" minOccurs="1"
+						name="type_tour" type="smv:Type_tour" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+
+	</xsd:complexType>
+	<xsd:simpleType name="Email">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="5" />
+			<xsd:maxLength value="254" />
+			<xsd:pattern
+				value="[_\-a-zA-Z0-9\.\+]+@[a-zA-Z0-9]+\.[^@]+" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Tel_num">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="12" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Role">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Admin" />
+			<xsd:enumeration value="Manager" />
+			<xsd:enumeration value="Client" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="Person">
+		<xsd:complexContent>
+			<xsd:extension base="smv:Entity">
+				<xsd:sequence>
+					<xsd:element minOccurs="1" maxOccurs="1" name="name"
+						type="xsd:string" />
+					<xsd:element minOccurs="1" maxOccurs="1" name="surname"
+						type="xsd:string" />
+					<xsd:element minOccurs="0" maxOccurs="1"
+						name="patronymic" type="xsd:string" />
+					<xsd:element minOccurs="0" maxOccurs="1" name="email"
+						type="smv:Email" />
+					<xsd:element minOccurs="1" maxOccurs="1" name="tel_num"
+						type="smv:Tel_num" />
+					<xsd:element minOccurs="1" maxOccurs="1" name="address"
+						type="xsd:string" />
+					<xsd:element minOccurs="1" maxOccurs="1"
+						name="birth_date" type="xsd:date" />
+					<xsd:element minOccurs="1" maxOccurs="1"
+						name="document" type="xsd:string" />
+					<xsd:element minOccurs="1" maxOccurs="1" name="role"
+						type="smv:Role" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="Entity">
+		<xsd:attribute name="id" type="smv:Id" use="required" />
+	</xsd:complexType>
+	<xsd:simpleType name="Id">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0" />
+			<xsd:maxExclusive value="999999" />
+			<xsd:pattern value="[0-9]*" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+</xsd:schema>
